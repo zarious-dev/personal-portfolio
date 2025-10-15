@@ -1,24 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-
       {/* Header */}
       <div id="header">
         <div className="top">
           {/* Logo */}
           <div id="logo">
             <span className="image avatar48">
-              <img src="images/avatar.jpg" alt="" />
+              <img src="images/IMG3.png" alt="" />
             </span>
-            <h1 id="title">Jane Doe</h1>
-            <p>Hyperspace Engineer</p>
+            <h1 id="title">Caezarie Enriquez</h1>
+            <p>Information Systems Student</p>
           </div>
           {/* Nav */}
           <nav id="nav">
@@ -30,12 +23,22 @@ function App() {
               </li>
               <li>
                 <a href="#portfolio" id="portfolio-link">
-                  <span className="icon solid fa-th">Portfolio</span>
+                  <span className="icon solid fa-th">Biography</span>
                 </a>
               </li>
               <li>
                 <a href="#about" id="about-link">
-                  <span className="icon solid fa-user">About Me</span>
+                  <span className="icon solid fa-user">Projects</span>
+                </a>
+              </li>
+              <li>
+                <a href="#about" id="about-link">
+                  <span className="icon solid fa-user">Skills</span>
+                </a>
+              </li>
+              <li>
+                <a href="#about" id="about-link">
+                  <span className="icon solid fa-user">Resume</span>
                 </a>
               </li>
               <li>
