@@ -49,36 +49,7 @@ function App() {
             </ul>
           </nav>
         </div>
-        <div className="bottom">
-          {/* Social Icons */}
-          <ul className="icons">
-            <li>
-              <a href="#" className="icon brands fa-twitter">
-                <span className="label">Twitter</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="icon brands fa-facebook-f">
-                <span className="label">Facebook</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="icon brands fa-github">
-                <span className="label">Github</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="icon brands fa-dribbble">
-                <span className="label">Dribbble</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="icon solid fa-envelope">
-                <span className="label">Email</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+
       </div>
       {/* Main */}
       <div id="main">
@@ -220,13 +191,14 @@ function App() {
               You can provide a brief summary of your professional experience and
               education, or embed a downloadable resume link below.
             </p>
-            <a href="files/YourResume.pdf" className="button" download>
-              Download My Resume
+            <a href="https://drive.google.com/file/d/17VnQ96QRf8bmTgCWo_XWyhD0tredw1ZM/view?usp=sharing" className="button" download>
+              View My Resume
             </a>
           </div>
         </section>
 
         {/* Contact */}
+
         <section id="contact" className="six">
           <div className="container">
             <header>
@@ -235,26 +207,32 @@ function App() {
             <p>
               Feel free to reach out for collaborations, opportunities, or inquiries.
             </p>
-            <form method="post" action="#">
-              <div className="row">
-                <div className="col-6 col-12-mobile">
-                  <input type="text" name="name" placeholder="Name" />
-                </div>
-                <div className="col-6 col-12-mobile">
-                  <input type="text" name="email" placeholder="Email" />
-                </div>
-                <div className="col-12">
-                  <textarea
-                    name="message"
-                    placeholder="Message"
-                    defaultValue=""
-                  />
-                </div>
-                <div className="col-12">
-                  <input type="submit" defaultValue="Send Message" />
-                </div>
-              </div>
-            </form>
+
+            <div className="bottom">
+              {/* Social Icons */}
+              <ul className="icons">
+                <li>
+                  <a href="https://mail.google.com/mail/?view=cm&to=enriquez.caezarie@gmail.com" className="icon solid fa-envelope">
+                    <span className="label">Email</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/sarya.l.enriquez/" className="icon brands fa-facebook-f">
+                    <span className="label">Facebook</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/zarious-dev" className="icon brands fa-github">
+                    <span className="label">Github</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/caezarie-enriquez-0b88792bb" className="icon brands fa-linkedin-in">
+                    <span className="label">LinkedIn</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
       </div>
@@ -268,9 +246,6 @@ function App() {
           </li>
         </ul>
       </div>
-      {/* Scripts */}
-
-
     </>
   )
 }
