@@ -1,3 +1,7 @@
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaLaravel, FaFigma, FaGitAlt, FaGithub } from "react-icons/fa";
+import { SiAdobexd } from "react-icons/si";
+import { MdGroups } from "react-icons/md";
+
 function App() {
   return (
     <>
@@ -147,15 +151,14 @@ function App() {
               <h2>Skills</h2>
             </header>
             <p>
-              List your core technical and soft skills — programming languages, tools, frameworks,
-              and other relevant abilities that highlight your strengths.
+              These are the programming languages, tools, and frameworks,
+              that I have encountered.
             </p>
-            <ul>
-              <li>HTML, CSS, JavaScript</li>
-              <li>React, Node.js, Laravel</li>
-              <li>UI/UX Design (Figma, Adobe XD)</li>
-              <li>Version Control (Git, GitHub)</li>
-              <li>Team Collaboration & Agile Development</li>
+            <ul className="skills-list" >
+              <li><FaHtml5 color="#E34F26" /> <FaCss3Alt color="#1572B6" />
+                <FaReact color="#61DAFB" /> <FaLaravel color="#FF2D20" />
+                <FaFigma color="#F24E1E" /> <FaGithub color="#000" />
+              </li>
             </ul>
           </div>
         </section>
