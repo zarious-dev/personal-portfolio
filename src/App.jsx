@@ -38,11 +38,11 @@ function App() {
               </h2>
               <p>
                 I’m an <strong>Information Systems</strong> student who isn’t deeply into
-                 coding, but I have a strong passion for exploring, learning, 
-                 and adapting. This portfolio highlights my academic projects,
-                  skills, and the experiences that have shaped my journey. 
-                  My dream is to work in the medical field, but if that doesn’t happen, 
-                  I’ll use what I’ve learned in Information Systems to contribute to healthcare in the future.
+                coding, but I have a strong passion for exploring, learning,
+                and adapting. This portfolio highlights my academic projects,
+                skills, and the experiences that have shaped my journey.
+                My dream is to work in the medical field, but if that doesn’t happen,
+                I’ll use what I’ve learned in Information Systems to contribute to healthcare in the future.
                 Building innovative solutions and learning new technologies
                 <br />
                 to create meaningful digital experiences.
@@ -132,7 +132,7 @@ function App() {
               <h2>Projects</h2>
             </header>
             <a href="#" className="image featured">
-             </a>
+            </a>
             <p>
               Showcase your most impressive projects here — describe the technologies used,
               your role, and what makes each project unique or challenging.
@@ -167,13 +167,17 @@ function App() {
               <h2>Resume</h2>
             </header>
             <p>
-              You can provide a brief summary of your professional experience and
-              education, or embed a downloadable resume link below.
+              You can view or download my resume below to learn more about my academic
+              and professional background.
             </p>
-            <a href="https://drive.google.com/file/d/17VnQ96QRf8bmTgCWo_XWyhD0tredw1ZM/view?usp=sharing" className="button" target="_blank" rel="noopener noreferrer">
-              View My Resume
-            </a>
-            <a href="Resume.pdf"></a>
+
+            {/* View Resume (Google Drive) */}
+            <a href="https://drive.google.com/file/d/17VnQ96QRf8bmTgCWo_XWyhD0tredw1ZM/view?usp=sharing"
+              className="button" target="_blank" rel="noopener noreferrer">View My Resume</a>
+
+            {/* Direct Download Button */}
+            <a href="/images/Resume.pdf" download="Resume.pdf"
+              className="button" style={{ marginLeft: "10px" }}>Download Resume</a>
           </div>
         </section>
 
