@@ -22,23 +22,23 @@ function App() {
                 </a>
               </li>
               <li>
-                <a href="#portfolio" id="portfolio-link">
-                  <span className="icon solid fa-th">Biography</span>
+                <a href="#biography" id="biography-link">
+                  <span className="icon solid fa-user">Biography</span>
                 </a>
               </li>
               <li>
-                <a href="#about" id="about-link">
-                  <span className="icon solid fa-user">Projects</span>
+                <a href="#projects" id="projects-link">
+                  <span className="icon solid fa-th">Projects</span>
                 </a>
               </li>
               <li>
-                <a href="#about" id="about-link">
-                  <span className="icon solid fa-user">Skills</span>
+                <a href="#skills" id="skills-link">
+                  <span className="icon solid fa-cogs">Skills</span>
                 </a>
               </li>
               <li>
-                <a href="#about" id="about-link">
-                  <span className="icon solid fa-user">Resume</span>
+                <a href="#resume" id="resume-link">
+                  <span className="icon solid fa-file-alt">Resume</span>
                 </a>
               </li>
               <li>
@@ -105,107 +105,135 @@ function App() {
             </footer>
           </div>
         </section>
-        {/* Portfolio */}
-        <section id="portfolio" className="two">
+        {/* Biography */}
+        <section id="biography" className="two">
           <div className="container">
             <header>
-              <h2>Portfolio</h2>
+              <h2>Biography</h2>
             </header>
             <p>
-              Vitae natoque dictum etiam semper magnis enim feugiat convallis
-              convallis egestas rhoncus ridiculus in quis risus amet curabitur
-              tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam
-              vivamus eget. Nunc nibh morbi quis fusce hendrerit lacus ridiculus.
+              Here’s where you can share your background, story, and experiences that led you to your current journey.
+              Mention key milestones, passions, or what inspires you professionally.
             </p>
             <div className="row">
               <div className="col-4 col-12-mobile">
                 <article className="item">
                   <a href="#" className="image fit">
-                    <img src="images/pic02.jpg" alt="" />
+                    <img src="images/pic02.jpg" alt="Biography Image 1" />
                   </a>
                   <header>
-                    <h3>Ipsum Feugiat</h3>
+                    <h3>Early Beginnings</h3>
                   </header>
                 </article>
                 <article className="item">
                   <a href="#" className="image fit">
-                    <img src="images/pic03.jpg" alt="" />
+                    <img src="images/pic03.jpg" alt="Biography Image 2" />
                   </a>
                   <header>
-                    <h3>Rhoncus Semper</h3>
-                  </header>
-                </article>
-              </div>
-              <div className="col-4 col-12-mobile">
-                <article className="item">
-                  <a href="#" className="image fit">
-                    <img src="images/pic04.jpg" alt="" />
-                  </a>
-                  <header>
-                    <h3>Magna Nullam</h3>
-                  </header>
-                </article>
-                <article className="item">
-                  <a href="#" className="image fit">
-                    <img src="images/pic05.jpg" alt="" />
-                  </a>
-                  <header>
-                    <h3>Natoque Vitae</h3>
+                    <h3>Journey & Growth</h3>
                   </header>
                 </article>
               </div>
               <div className="col-4 col-12-mobile">
                 <article className="item">
                   <a href="#" className="image fit">
-                    <img src="images/pic06.jpg" alt="" />
+                    <img src="images/pic04.jpg" alt="Biography Image 3" />
                   </a>
                   <header>
-                    <h3>Dolor Penatibus</h3>
+                    <h3>Education</h3>
                   </header>
                 </article>
                 <article className="item">
                   <a href="#" className="image fit">
-                    <img src="images/pic07.jpg" alt="" />
+                    <img src="images/pic05.jpg" alt="Biography Image 4" />
                   </a>
                   <header>
-                    <h3>Orci Convallis</h3>
+                    <h3>Achievements</h3>
+                  </header>
+                </article>
+              </div>
+              <div className="col-4 col-12-mobile">
+                <article className="item">
+                  <a href="#" className="image fit">
+                    <img src="images/pic06.jpg" alt="Biography Image 5" />
+                  </a>
+                  <header>
+                    <h3>Current Work</h3>
+                  </header>
+                </article>
+                <article className="item">
+                  <a href="#" className="image fit">
+                    <img src="images/pic07.jpg" alt="Biography Image 6" />
+                  </a>
+                  <header>
+                    <h3>Future Goals</h3>
                   </header>
                 </article>
               </div>
             </div>
           </div>
         </section>
-        {/* About Me */}
-        <section id="about" className="three">
+
+        {/* Projects */}
+        <section id="projects" className="three">
           <div className="container">
             <header>
-              <h2>About Me</h2>
+              <h2>Projects</h2>
             </header>
             <a href="#" className="image featured">
-              <img src="images/pic08.jpg" alt="" />
+              <img src="images/pic08.jpg" alt="Project Showcase" />
             </a>
             <p>
-              Tincidunt eu elit diam magnis pretium accumsan etiam id urna.
-              Ridiculus ultricies curae quis et rhoncus velit. Lobortis elementum
-              aliquet nec vitae laoreet eget cubilia quam non etiam odio tincidunt
-              montes. Elementum sem parturient nulla quam placerat viverra mauris
-              non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia donec
-              curae mus vel quisque sociis nec ornare iaculis.
+              Showcase your most impressive projects here — describe the technologies used,
+              your role, and what makes each project unique or challenging.
             </p>
           </div>
         </section>
+
+        {/* Skills */}
+        <section id="skills" className="four">
+          <div className="container">
+            <header>
+              <h2>Skills</h2>
+            </header>
+            <p>
+              List your core technical and soft skills — programming languages, tools, frameworks,
+              and other relevant abilities that highlight your strengths.
+            </p>
+            <ul>
+              <li>HTML, CSS, JavaScript</li>
+              <li>React, Node.js, Laravel</li>
+              <li>UI/UX Design (Figma, Adobe XD)</li>
+              <li>Version Control (Git, GitHub)</li>
+              <li>Team Collaboration & Agile Development</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Resume */}
+        <section id="resume" className="five">
+          <div className="container">
+            <header>
+              <h2>Resume</h2>
+            </header>
+            <p>
+              You can provide a brief summary of your professional experience and
+              education, or embed a downloadable resume link below.
+            </p>
+            <a href="files/YourResume.pdf" className="button" download>
+              Download My Resume
+            </a>
+          </div>
+        </section>
+
         {/* Contact */}
-        <section id="contact" className="four">
+        <section id="contact" className="six">
           <div className="container">
             <header>
               <h2>Contact</h2>
             </header>
             <p>
-              Elementum sem parturient nulla quam placerat viverra mauris non cum
-              elit tempus ullamcorper dolor. Libero rutrum ut lacinia donec curae
-              mus. Eleifend id porttitor ac ultricies lobortis sem nunc orci
-              ridiculus faucibus a consectetur. Porttitor curae mauris urna mi
-              dolor.
+              Feel free to reach out for collaborations, opportunities, or inquiries.
             </p>
             <form method="post" action="#">
               <div className="row">
@@ -219,7 +247,7 @@ function App() {
                   <textarea
                     name="message"
                     placeholder="Message"
-                    defaultValue={""}
+                    defaultValue=""
                   />
                 </div>
                 <div className="col-12">
