@@ -26,7 +26,7 @@ function App() {
         {/* Intro */}
         <section id="top" className="one dark cover">
           <div className="container">
-            <div className="intro-profile">
+            {/* <div className="intro-profile">
               <span className="image avatar48">
                 <img src="images/IMG3.png" alt="Caezarie Enriquez" />
               </span>
@@ -34,7 +34,7 @@ function App() {
                 <h1>Caezarie Enriquez</h1>
                 <p className="title">Information Systems Student</p>
               </div>
-            </div>
+            </div> */}
             <header>
               <h2 className="alt">
                 <strong> Hello! I'm Caezarie Enriquez</strong>{" "}
@@ -47,9 +47,7 @@ function App() {
                 skills, and the experiences that have shaped my journey.
                 My dream is to work in the medical field, but if that doesn’t happen,
                 I’ll use what I’ve learned in Information Systems to contribute to healthcare in the future.
-                Building innovative solutions and learning new technologies
                 <br />
-                to create meaningful digital experiences.
               </p>
             </header>
             <footer>
@@ -69,6 +67,22 @@ function App() {
             <p>
               Here's where you can share your background, story, and experiences that led you to your current journey.
               Mention key milestones, passions, or what inspires you professionally.
+            </p>
+
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section id="projects" className="three">
+          <div className="container">
+            <header>
+              <h2>Projects</h2>
+            </header>
+            <a href="#" className="image featured">
+            </a>
+            <p>
+              Showcase your most impressive projects here — describe the technologies used,
+              your role, and what makes each project unique or challenging.
             </p>
             <div className="row">
               <div className="col-4 col-12-mobile">
@@ -129,21 +143,6 @@ function App() {
           </div>
         </section>
 
-        {/* Projects */}
-        <section id="projects" className="three">
-          <div className="container">
-            <header>
-              <h2>Projects</h2>
-            </header>
-            <a href="#" className="image featured">
-            </a>
-            <p>
-              Showcase your most impressive projects here — describe the technologies used,
-              your role, and what makes each project unique or challenging.
-            </p>
-          </div>
-        </section>
-
         {/* Skills */}
         <section id="skills" className="four">
           <div className="container">
@@ -188,7 +187,7 @@ function App() {
         <section id="contact" className="three">
           <div className="container">
             <header>
-              <h2>Contact</h2>
+              <h2>Contacts</h2>
             </header>
             <p>
               Feel free to reach out for collaborations, opportunities, or inquiries.
