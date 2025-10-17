@@ -1,8 +1,35 @@
+import { useState, useEffect, useRef } from "react";
+
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaLaravel, FaFigma, FaGitAlt, FaGithub, FaUser, FaGraduationCap, FaHeart } from "react-icons/fa";
-import { SiAdobexd } from "react-icons/si";
-import { MdGroups } from "react-icons/md";
+// import { SiAdobexd } from "react-icons/si";
+// import { MdGroups } from "react-icons/md";
+
 
 function App() {
+  const [activeCard, setActiveCard] = useState(null);
+
+  const closeModal = () => setActiveCard(null);
+
+  // close on Escape key
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") closeModal(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const modalRef = useRef(null);
+  const lastActiveRef = useRef(null);
+
+  useEffect(() => {
+    if (activeCard !== null) {
+      lastActiveRef.current = document.activeElement;
+      setTimeout(() => modalRef.current?.focus(), 0);
+    } else {
+      lastActiveRef.current?.focus?.();
+    }
+  }, [activeCard]);
+
+
   return (
     <>
       {/* Fixed Header */}
@@ -64,40 +91,77 @@ function App() {
               <p>Learn about my background, education, and passions.</p>
             </header>
 
+            {/* Cards */}
             <div className="biography-cards">
-              <div className="bio-card">
+              <div className="bio-card" onClick={() => setActiveCard(0)}>
                 <FaUser className="bio-icon" />
                 <h3>About Me</h3>
-                <p>
-                  I am an individual with experience in healthcare, management, and web development.
-                  Passionate about problem-solving, continuous learning, and creating meaningful digital solutions.
-                </p>
               </div>
 
-              <div className="bio-card">
+              <div className="bio-card" onClick={() => setActiveCard(1)}>
                 <FaGraduationCap className="bio-icon" />
                 <h3>Education</h3>
-                <p>
-                  I am a STEM Graduate. A consistent Honor Student and Lister.
-                </p>
               </div>
 
-              <div className="bio-card">
+              <div className="bio-card" onClick={() => setActiveCard(2)}>
                 <FaHeart className="bio-icon" />
                 <h3>Hobbies & Interests</h3>
-                <p>
-                  I enjoy observing and analyzing people's actions and behaviors. I love reading, watching movies/series,
-                  and exploring problem-solving techniques.
-                </p>
               </div>
             </div>
-
           </div>
+
+          {/* Modal (Pop-up) */}
+          {activeCard !== null && (
+            <div className="bio-modal-overlay" onClick={closeModal}>
+              <div
+                className="bio-modal"
+                ref={modalRef}
+                tabIndex={-1}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="bio-modal-title"
+                onClick={(e) => e.stopPropagation()}
+              >
+
+                <button className="bio-modal-close" onClick={closeModal}>×</button>
+
+                <div className="bio-modal-content">
+                  {activeCard === 0 && (
+                    <>
+                      <FaUser className="bio-modal-icon" />
+                      <h3>About Me</h3>
+                      <p>
+                        I am 
+                      </p>
+                    </>
+                  )}
+                  {activeCard === 1 && (
+                    <>
+                      <FaGraduationCap className="bio-modal-icon" />
+                      <h3>Education</h3>
+                      <p>
+                        I am 
+                      </p>
+                    </>
+                  )}
+                  {activeCard === 2 && (
+                    <>
+                      <FaHeart className="bio-modal-icon" />
+                      <h3>Hobbies & Interests</h3>
+                      <p>
+                        I 
+                      </p>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
         </section>
 
 
         {/* Projects */}
-        <section id="projects" className="three">
+        < section id="projects" className="three" >
           <div className="container">
             <header>
               <h2>Projects</h2>
@@ -165,10 +229,10 @@ function App() {
               </div>
             </div>
           </div>
-        </section>
+        </section >
 
         {/* Tools and Frameworks */}
-        <section id="tools" className="four">
+        < section id="tools" className="four" >
           <div className="container">
             <header>
               <h2>Tools and Frameworks</h2>
@@ -183,10 +247,10 @@ function App() {
               </li>
             </ul>
           </div>
-        </section>
+        </section >
 
         {/* Resume */}
-        <section id="resume" className="two">
+        < section id="resume" className="two" >
           <div className="container">
             <header>
               <h2>Resume</h2>
@@ -204,10 +268,10 @@ function App() {
             <a href="/images/Resume.pdf" download="Resume.pdf"
               className="button" style={{ marginLeft: "10px" }}>Download Resume</a>
           </div>
-        </section>
+        </section >
 
         {/* Contact */}
-        <section id="contact" className="three">
+        < section id="contact" className="three" >
           <div className="container">
             <header>
               <h2>Contacts</h2>
@@ -238,15 +302,15 @@ function App() {
               </li>
             </ul>
           </div>
-        </section>
-      </div>
+        </section >
+      </div >
 
       {/* Footer */}
-      <div id="footer">
+      < div id="footer" >
         <ul className="copyright">
           <li>© Caezarie Enriquez. All rights reserved.</li>
         </ul>
-      </div>
+      </div >
     </>
   );
 }
