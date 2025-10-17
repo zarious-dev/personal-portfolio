@@ -1,14 +1,94 @@
 import { useState, useEffect, useRef } from "react";
-
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaLaravel, FaFigma, FaGitAlt, FaGithub, FaUser, FaGraduationCap, FaHeart } from "react-icons/fa";
-// import { SiAdobexd } from "react-icons/si";
-// import { MdGroups } from "react-icons/md";
-
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaLaravel, FaFigma, FaGitAlt, FaGithub, FaUser, FaGraduationCap, FaHeart, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 
 function App() {
   const [activeCard, setActiveCard] = useState(null);
+  const [sectionClickCounts, setSectionClickCounts] = useState({});
 
   const closeModal = () => setActiveCard(null);
+
+  // Handle section clicks for color cycling
+  const handleSectionClick = (sectionId) => {
+    setSectionClickCounts(prev => ({
+      ...prev,
+      [sectionId]: (prev[sectionId] || 0) + 1
+    }));
+  };
+
+  // Get section color based on click count (cycles through colors)
+  const getSectionColor = (sectionId) => {
+    const clickCount = sectionClickCounts[sectionId] || 0;
+
+    // If never clicked, return white
+    if (clickCount === 0) return '#ffffff';
+
+    // Define color cycles for each section (colors that rotate)
+    const colorCycles = {
+      'top': [
+        'linear-gradient(#1f4037, #99f2c8)', // Greenish
+        'linear-gradient(#20002c, #cbb4d4)', // Purple-lav
+        'linear-gradient(135deg, #30cfd0 0%, #330867 100%)', // Teal-Purple
+        'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', // Purple
+        'linear-gradient(#642b73, #c6426e)', //magenta
+        'linear-gradient(#283c86, #45a247)', //green-blue
+        'linear-gradient(#eb5757, #000000)', //green-blue
+      ],
+      'biography': [
+        'linear-gradient(#dbe6f6, #c5796d)', //white-pink-light red
+        'linear-gradient(#ada996, #f2f2f2, #dbdbdb, #eaeaea)', // gray-white
+        'linear-gradient(#acb6e5, #86fde8)', // windy-blue
+        'linear-gradient(#dce35b, #45b649)', // yellow-green
+        'linear-gradient(#ffafbd, #ffc3a0)', // pink-orange
+        'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',  // Mint-Pink
+      ],
+      'projects': [
+        'linear-gradient(#dce35b, #45b649)', // yellow-green
+        'linear-gradient(#ffafbd, #ffc3a0)', // pink-orange
+        'linear-gradient(#b2fefa, #0ed2f7)', // light-dark blue
+        'linear-gradient(#74ebd5, #acb6e5)', //purple-blue-pink
+        'linear-gradient(#d3cce3, #e9e4f0 )', // lavender na may white
+        'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',  // Mint-Pink
+
+      ],
+      'tools': [
+        'linear-gradient(#ffefba, #ffffff)', // white na may dirty white
+        'linear-gradient(#ee9ca7, #ffdde1)',//pink
+        'linear-gradient(#f7f8f8, #acbb78)', //ver blacl(white na may green na may brown)
+        'linear-gradient(#ada996, #f2f2f2, #dbdbdb, #eaeaea)', // gray-white
+        'linear-gradient(#acb6e5, #86fde8)', // windy-blue
+        'linear-gradient(#dce35b, #45b649)', // yellow-green
+        'linear-gradient(#c9d6ff, #e2e2e2)', // lav-white
+
+      ],
+      'resume': [
+        'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',  // Mint-Pink
+        'linear-gradient(#74ebd5, #acb6e5)', //purple-blue-pink
+        'linear-gradient(#d3cce3, #e9e4f0 )', // lavender na may white
+        'linear-gradient(#ffefba, #ffffff)', // white na may dirty white
+        'linear-gradient(#ee9ca7, #ffdde1)',//pink
+        'linear-gradient(#f7f8f8, #acbb78)', //ver blacl(white na may green na may brown)
+      ],
+      'contact': [
+        'linear-gradient(#acb6e5, #86fde8)', // windy-blue
+        'linear-gradient(#dce35b, #45b649)', // yellow-green
+        'linear-gradient(#43c6ac, #f8ffae)', // green-yellow
+        'linear-gradient(#b2fefa, #0ed2f7)', // light-dark blue
+        'linear-gradient(#74ebd5, #acb6e5)', //purple-blue-pink
+        'linear-gradient(#f7f8f8, #acbb78)', //ver blacl(white na may green na may brown)
+        'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',  // Mint-Pink
+        'linear-gradient(#c9d6ff, #e2e2e2)', // lav-white
+        'linear-gradient(#ada996, #f2f2f2, #dbdbdb, #eaeaea)', // gray-white
+
+      ]
+    };
+
+    const colors = colorCycles[sectionId] || colorCycles['top'];
+
+    // Cycle through colors: (clickCount - 1) % 
+    const colorIndex = (clickCount - 1) % colors.length;
+
+    return colors[colorIndex];
+  };
 
   // close on Escape key
   useEffect(() => {
@@ -28,7 +108,6 @@ function App() {
       lastActiveRef.current?.focus?.();
     }
   }, [activeCard]);
-
 
   return (
     <>
@@ -51,29 +130,29 @@ function App() {
       {/* Main */}
       <div id="main">
         {/* Intro */}
-        <section id="top" className="one dark cover">
+        <section
+          id="top"
+          className="one dark cover"
+          onClick={() => handleSectionClick('top')}
+          style={{
+            background: getSectionColor('top'),
+            transition: 'background 0.6s ease',
+            cursor: 'pointer'
+          }}
+        >
           <div className="container">
-            {/* <div className="intro-profile">
-              <span className="image avatar48">
-                <img src="images/IMG3.png" alt="Caezarie Enriquez" />
-              </span>
-              <div className="profile-info">
-                <h1>Caezarie Enriquez</h1>
-                <p className="title">Information Systems Student</p>
-              </div>
-            </div> */}
             <header>
               <h2 className="alt">
                 <strong> Hello! I'm Caezarie Enriquez</strong>{" "}
                 <br />
               </h2>
               <p>
-                I’m an <strong>Information Systems</strong> student who isn’t deeply into
+                I'm an <strong>Information Systems</strong> student who isn't deeply into
                 coding, but I have a strong passion for exploring, learning,
                 and adapting. This portfolio highlights my academic projects,
                 skills, and the experiences that have shaped my journey.
-                My dream is to work in the medical field, but if that doesn’t happen,
-                I’ll use what I’ve learned in Information Systems to contribute to healthcare in the future.
+                My dream is to work in the medical field, but if that doesn't happen,
+                I'll use what I've learned in Information Systems to contribute to healthcare in the future.
                 <br />
               </p>
             </header>
@@ -84,7 +163,16 @@ function App() {
         </section>
 
         {/* Biography */}
-        <section id="biography" className="two">
+        <section
+          id="biography"
+          className="two"
+          onClick={() => handleSectionClick('biography')}
+          style={{
+            background: getSectionColor('biography'),
+            transition: 'background 0.6s ease',
+            cursor: 'pointer'
+          }}
+        >
           <div className="container">
             <header>
               <h2>Biography</h2>
@@ -122,7 +210,6 @@ function App() {
                 aria-labelledby="bio-modal-title"
                 onClick={(e) => e.stopPropagation()}
               >
-
                 <button className="bio-modal-close" onClick={closeModal}>×</button>
 
                 <div className="bio-modal-content">
@@ -131,7 +218,7 @@ function App() {
                       <FaUser className="bio-modal-icon" />
                       <h3>About Me</h3>
                       <p>
-                        I am 
+                        I am
                       </p>
                     </>
                   )}
@@ -140,7 +227,7 @@ function App() {
                       <FaGraduationCap className="bio-modal-icon" />
                       <h3>Education</h3>
                       <p>
-                        I am 
+                        I am
                       </p>
                     </>
                   )}
@@ -149,7 +236,7 @@ function App() {
                       <FaHeart className="bio-modal-icon" />
                       <h3>Hobbies & Interests</h3>
                       <p>
-                        I 
+                        I
                       </p>
                     </>
                   )}
@@ -159,80 +246,98 @@ function App() {
           )}
         </section>
 
-
         {/* Projects */}
-        < section id="projects" className="three" >
+        <section
+          id="projects"
+          className="three"
+          onClick={() => handleSectionClick('projects')}
+          style={{
+            background: getSectionColor('projects'),
+            transition: 'background 0.6s ease',
+            cursor: 'pointer'
+          }}
+        >
           <div className="container">
             <header>
               <h2>Projects</h2>
             </header>
-            <a href="#" className="image featured">
-            </a>
             <p>
               Showcase your most impressive projects here — describe the technologies used,
               your role, and what makes each project unique or challenging.
             </p>
-            <div className="row">
-              <div className="col-4 col-12-mobile">
-                <article className="item">
-                  <a href="#" className="image fit">
-                    <img src="images/pic02.jpg" alt="Biography Image 1" />
+
+            <div className="projects-grid">
+              {/* Project 1 */}
+              <article className="item">
+                {/* Floating Action Buttons */}
+                <div className="fab-buttons">
+                  <a
+                    href="https://www.figma.com/proto/QN1ciWkcKIMqVOS6GO8UAq/DreamLog?node-id=183-12&starting-point-node-id=183%3A12&t=Wc0M7ljJd2mcyLCW-1"
+                    className="fab-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="View Figma Prototype"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <FaFigma />                  </a>
+                  <a
+                    href="https://github.com/LVCCWAD/DreamLog.git"
+                    className="fab-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="View Code"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <span>&lt;/&gt;</span>
                   </a>
-                  <header>
-                    <h3>Early Beginnings</h3>
-                  </header>
-                </article>
-                <article className="item">
-                  <a href="#" className="image fit">
-                    <img src="images/pic03.jpg" alt="Biography Image 2" />
+                </div>
+
+                <div className="image fit">
+                  <img src="images/dreamlog2.png" alt="Dream Log Website" />
+                </div>
+                <header>
+                  <h3>DreamLog Website</h3>
+                </header>
+              </article>
+
+              {/* Project 2 */}
+              <article className="item">
+                {/* Floating Action Buttons */}
+                <div className="fab-buttons">
+                  <a
+                    href="https://www.figma.com/proto/7wSxzqqpIxlkphVZJuzQc5/PRACTICAL_ENRIQUEZ_BSIS2?node-id=197-145&p=f&t=pMq59R79Ejd7PHjH-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=181%3A57"
+                    className="fab-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="View Figma Prototype"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <FaFigma />
                   </a>
-                  <header>
-                    <h3>Journey & Growth</h3>
-                  </header>
-                </article>
-              </div>
-              <div className="col-4 col-12-mobile">
-                <article className="item">
-                  <a href="#" className="image fit">
-                    <img src="images/pic04.jpg" alt="Biography Image 3" />
-                  </a>
-                  <header>
-                    <h3>Education</h3>
-                  </header>
-                </article>
-                <article className="item">
-                  <a href="#" className="image fit">
-                    <img src="images/pic05.jpg" alt="Biography Image 4" />
-                  </a>
-                  <header>
-                    <h3>Achievements</h3>
-                  </header>
-                </article>
-              </div>
-              <div className="col-4 col-12-mobile">
-                <article className="item">
-                  <a href="#" className="image fit">
-                    <img src="images/pic06.jpg" alt="Biography Image 5" />
-                  </a>
-                  <header>
-                    <h3>Current Work</h3>
-                  </header>
-                </article>
-                <article className="item">
-                  <a href="#" className="image fit">
-                    <img src="images/pic07.jpg" alt="Biography Image 6" />
-                  </a>
-                  <header>
-                    <h3>Future Goals</h3>
-                  </header>
-                </article>
-              </div>
+                </div>
+
+                <div className="image fit">
+                  <img src="images/foodapp3.png" alt="Food Delivery App" />
+                </div>
+                <header>
+                  <h3>Food Delivery App</h3>
+                </header>
+              </article>
             </div>
           </div>
-        </section >
+        </section>
 
         {/* Tools and Frameworks */}
-        < section id="tools" className="four" >
+        <section
+          id="tools"
+          className="four"
+          onClick={() => handleSectionClick('tools')}
+          style={{
+            background: getSectionColor('tools'),
+            transition: 'background 0.6s ease',
+            cursor: 'pointer'
+          }}
+        >
           <div className="container">
             <header>
               <h2>Tools and Frameworks</h2>
@@ -240,17 +345,30 @@ function App() {
             <p>
               These are the programming languages, tools, and frameworks that I know.
             </p>
-            <ul className="tools-list" >
-              <li><FaHtml5 color="#E34F26" /> <FaCss3Alt color="#1572B6" />
-                <FaReact color="#61DAFB" /> <FaLaravel color="#FF2D20" />
-                <FaFigma color="#F24E1E" /> <FaGithub color="#000" />
+            <ul className="tools-list">
+              <li>
+                <FaHtml5 color="#E34F26" />
+                <FaCss3Alt color="#1572B6" />
+                <FaReact color="#61DAFB" />
+                <FaLaravel color="#FF2D20" />
+                <FaFigma color="#F24E1E" />
+                <FaGithub color="#000" />
               </li>
             </ul>
           </div>
-        </section >
+        </section>
 
         {/* Resume */}
-        < section id="resume-buttons" className="two" >
+        <section
+          id="resume-buttons"
+          className="two"
+          onClick={() => handleSectionClick('resume')}
+          style={{
+            background: getSectionColor('resume'),
+            transition: 'background 0.6s ease',
+            cursor: 'pointer'
+          }}
+        >
           <div className="container">
             <header>
               <h2>Resume</h2>
@@ -261,17 +379,40 @@ function App() {
             </p>
 
             {/* View Resume (Google Drive) */}
-            <a href="https://drive.google.com/file/d/17VnQ96QRf8bmTgCWo_XWyhD0tredw1ZM/view?usp=sharing"
-              className="button" target="_blank" rel="noopener noreferrer">View My Resume</a>
+            <a
+              href="https://drive.google.com/file/d/17VnQ96QRf8bmTgCWo_XWyhD0tredw1ZM/view?usp=sharing"
+              className="button"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              View My Resume
+            </a>
 
             {/* Direct Download Button */}
-            <a href="/images/Resume.pdf" download="Resume.pdf"
-              className="button" style={{ marginLeft: "10px" }}>Download Resume</a>
+            <a
+              href="/images/Resume.pdf"
+              download="Resume.pdf"
+              className="button"
+              style={{ marginLeft: "10px" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              Download Resume
+            </a>
           </div>
-        </section >
+        </section>
 
         {/* Contact */}
-        < section id="contact" className="three" >
+        <section
+          id="contact"
+          className="three"
+          onClick={() => handleSectionClick('contact')}
+          style={{
+            background: getSectionColor('contact'),
+            transition: 'background 0.6s ease',
+            cursor: 'pointer'
+          }}
+        >
           <div className="container">
             <header>
               <h2>Contacts</h2>
@@ -302,15 +443,15 @@ function App() {
               </li>
             </ul>
           </div>
-        </section >
-      </div >
+        </section>
+      </div>
 
       {/* Footer */}
-      < div id="footer" >
+      <div id="footer">
         <ul className="copyright">
           <li>© Caezarie Enriquez. All rights reserved.</li>
         </ul>
-      </div >
+      </div>
     </>
   );
 }
