@@ -41,7 +41,7 @@ function App() {
               <li><a href="#biography">Biography</a></li>
               <li><a href="#projects">Projects</a></li>
               <li><a href="#tools">Tools</a></li>
-              <li><a href="#resume">Resume</a></li>
+              <li><a href="#resume-buttons">Resume</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </nav>
@@ -250,7 +250,7 @@ function App() {
         </section >
 
         {/* Resume */}
-        < section id="resume" className="two" >
+        < section id="resume-buttons" className="two" >
           <div className="container">
             <header>
               <h2>Resume</h2>
