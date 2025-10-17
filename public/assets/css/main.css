@@ -3064,37 +3064,44 @@ body {
 }
 
 
-
-/* --- Cards --- */
-
+/* --- Biography Cards --- */
 .biography-cards {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
   margin-top: 2rem;
 }
 
 .bio-card {
-  background: #f4f4f8;
+	background: #f8f8fb;
+  border: 2px solid #b0b0b0;
   border-radius: 20px;
   padding: 2rem;
   text-align: center;
-  width: 320px;
+  width: 250px;
+  height: 200px;
+  display: flex;
+  flex-direction: column; /* stack icon + title */
+  align-items: center;    /* center horizontally */
+  justify-content: center; /* center vertically */
+  cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
 .bio-card:hover {
   transform: translateY(-8px);
+  background: #ffffff;
   background: linear-gradient(145deg, #ffffff, #e8e8ff);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
 }
 
 .bio-icon {
-  font-size: 3rem;
-  color: #6c63ff;
-  margin-bottom: 1rem;
+  font-size: 3.5rem; /* increased slightly for better balance */
+  color: #8ebebc;
+  margin-bottom: 0.8rem;
   transition: transform 0.3s ease;
 }
 
@@ -3102,3 +3109,89 @@ body {
   transform: scale(1.2);
 }
 
+.bio-card h3 {
+  font-size: 1.3rem;
+  margin: 0;
+  line-height: 1.2; /* tighter spacing for multi-line titles */
+}
+
+
+/* Modal Overlay */
+.bio-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* Modal */
+.bio-modal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: popup 0.3s ease;
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.bio-modal-icon {
+  font-size: 3rem;
+  color: #273e3d;
+  margin-bottom: 1rem;
+}
+
+.bio-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  padding: 0;                 /* reset padding */
+  line-height: 0;             /* prevent text stretch */
+  background: #7be5ce;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  box-sizing: border-box;     /* ensures perfect box */
+}
+
+.bio-modal-close:hover {
+  background: #0fc5b0;
+  transform: scale(1.05);
+}
+
+.bio-modal-close:active {
+  transform: scale(0.95);
+}
+
+
+.bio-modal-overlay {
+  backdrop-filter: blur(6px); /* frosted glass effect */
+  -webkit-backdrop-filter: blur(6px);
+}
