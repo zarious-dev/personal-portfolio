@@ -3251,3 +3251,166 @@ body {
 	/* frosted glass effect */
 	-webkit-backdrop-filter: blur(6px);
 }
+
+/* --Projects Section-- */
+#projects .projects-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 3rem; /* Increased gap between cards */
+  margin-top: 3rem;
+  max-width: 1200px; /* Control maximum width */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+
+#projects .item {
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  width: 100%;
+  max-width: 450px; /* Increased card width */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#projects .item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+#projects .image.fit {
+  position: relative;
+  overflow: hidden;
+}
+
+#projects .image.fit img {
+  width: 100%;
+  height: 280px; /* Increased image height */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+#projects .item:hover .image.fit img {
+  transform: scale(1.05);
+}
+
+#projects header h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 1.5rem 0;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Floating Action Buttons for Projects */
+#projects .fab-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+#projects .item:hover .fab-buttons {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#projects .fab-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+  transition: all 0.3s ease;
+  border: 2px solid white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#projects .fab-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.7);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+#projects .fab-btn span {
+  font-size: 1.1em;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 1024px) {
+  #projects .projects-grid {
+    gap: 2rem;
+  }
+  
+  #projects .item {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 900px) {
+  #projects .projects-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  
+  #projects .item {
+    max-width: 500px;
+  }
+  
+  #projects .fab-btn {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 600px) {
+  #projects .projects-grid {
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+  
+  #projects .item {
+    max-width: 100%;
+  }
+  
+  /* Always show buttons on mobile */
+  #projects .fab-buttons {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  #projects .fab-buttons {
+    top: 15px;
+    right: 15px;
+    gap: 10px;
+  }
+  
+  #projects .fab-btn {
+    width: 42px;
+    height: 42px;
+  }
+  
+  #projects .fab-btn span {
+    font-size: 1em;
+  }
+  
+  #projects .image.fit img {
+    height: 220px;
+  }
+}
