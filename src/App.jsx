@@ -1,4 +1,4 @@
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaLaravel, FaFigma, FaGitAlt, FaGithub } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaLaravel, FaFigma, FaGitAlt, FaGithub, FaUser, FaGraduationCap, FaHeart } from "react-icons/fa";
 import { SiAdobexd } from "react-icons/si";
 import { MdGroups } from "react-icons/md";
 
@@ -13,7 +13,7 @@ function App() {
               <li><a href="#top">Intro</a></li>
               <li><a href="#biography">Biography</a></li>
               <li><a href="#projects">Projects</a></li>
-              <li><a href="#skills">Skills</a></li>
+              <li><a href="#tools">Tools</a></li>
               <li><a href="#resume">Resume</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -51,9 +51,7 @@ function App() {
               </p>
             </header>
             <footer>
-              <a href="#biography" className="button scrolly">
-                Learn More About Me
-              </a>
+              <a href="#biography" className="button scrolly">Learn More About Me</a>
             </footer>
           </div>
         </section>
@@ -63,14 +61,40 @@ function App() {
           <div className="container">
             <header>
               <h2>Biography</h2>
+              <p>Learn about my background, education, and passions.</p>
             </header>
-            <p>
-              Here's where you can share your background, story, and experiences that led you to your current journey.
-              Mention key milestones, passions, or what inspires you professionally.
-            </p>
+
+            <div className="biography-cards">
+              <div className="bio-card">
+                <FaUser className="bio-icon" />
+                <h3>About Me</h3>
+                <p>
+                  I am an individual with experience in healthcare, management, and web development.
+                  Passionate about problem-solving, continuous learning, and creating meaningful digital solutions.
+                </p>
+              </div>
+
+              <div className="bio-card">
+                <FaGraduationCap className="bio-icon" />
+                <h3>Education</h3>
+                <p>
+                  I am a STEM Graduate. A consistent Honor Student and Lister.
+                </p>
+              </div>
+
+              <div className="bio-card">
+                <FaHeart className="bio-icon" />
+                <h3>Hobbies & Interests</h3>
+                <p>
+                  I enjoy observing and analyzing people's actions and behaviors. I love reading, watching movies/series,
+                  and exploring problem-solving techniques.
+                </p>
+              </div>
+            </div>
 
           </div>
         </section>
+
 
         {/* Projects */}
         <section id="projects" className="three">
@@ -143,17 +167,16 @@ function App() {
           </div>
         </section>
 
-        {/* Skills */}
-        <section id="skills" className="four">
+        {/* Tools and Frameworks */}
+        <section id="tools" className="four">
           <div className="container">
             <header>
-              <h2>Skills</h2>
+              <h2>Tools and Frameworks</h2>
             </header>
             <p>
-              These are the programming languages, tools, and frameworks,
-              that I have encountered.
+              These are the programming languages, tools, and frameworks that I know.
             </p>
-            <ul className="skills-list" >
+            <ul className="tools-list" >
               <li><FaHtml5 color="#E34F26" /> <FaCss3Alt color="#1572B6" />
                 <FaReact color="#61DAFB" /> <FaLaravel color="#FF2D20" />
                 <FaFigma color="#F24E1E" /> <FaGithub color="#000" />
