@@ -194,23 +194,13 @@ body.is-preload *:after {
 	transition: none !important;
 }
 
-input,
-textarea,
-select {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 19pt;
-	font-weight: 300;
-	line-height: 1.75em;
-	color: #888;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	font-weight: 300;
+	font-weight: 500;
 	color: #666;
 	line-height: 1.5em;
 }
@@ -231,11 +221,11 @@ h3 a strong,
 h4 a strong,
 h5 a strong,
 h6 a strong {
-	color: #333;
+	color: #1a1a1a;
 }
 
 h2 {
-	font-size: 3em;
+	font-size: 4em;
 	letter-spacing: -1px;
 }
 
@@ -244,7 +234,7 @@ h2.alt {
 }
 
 h2.alt strong {
-	color: #666;
+	color: #121212;
 }
 
 h3 {
@@ -1946,8 +1936,8 @@ ul.icons li {
 
 ul.icons a {
 	display: inline-block;
-	width: 2em;
-	height: 2em;
+	width: 4em;
+	height: 4em;
 	line-height: 2em;
 	text-align: center;
 	border: 0;
@@ -2085,24 +2075,26 @@ button,
 }
 
 #resume-buttons .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	flex-wrap: wrap;
 }
 
-button:hover, .button:hover { 
-	background-color: #9ececc; }
+button:hover,
+.button:hover {
+	background-color: #9ececc;
+}
 
 /* Hover (no transition) */
 #resume-buttons .button:hover {
-  background-color: #9ececc;
+	background-color: #9ececc;
 }
 
 /* Active (pressed) */
 #resume-buttons .button:active {
-  background-color: #7eaeac;
+	background-color: #7eaeac;
 }
 
 #resume-buttons .button {
@@ -2121,7 +2113,7 @@ button:hover, .button:hover {
 	/* responsive font size (don’t over-shrink) */
 	/* font-size: clamp(14px, 1.4vw, 17px); */
 	/* max-width: none;prevent clipping */
-	
+
 }
 
 
@@ -3166,6 +3158,42 @@ body {
 	/* tighter spacing for multi-line titles */
 }
 
+.modal-content-wrapper {
+	/* Assuming these styles are already in your main modal CSS */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+/* --- 1. Hobbies List (Card 2) - Everything Centered --- */
+.hobbies-list-centered {
+	display: inline-block;
+	margin: 50px auto;
+	text-align: center;
+	padding-left: 0;
+}
+
+.hobbies-list-centered li {
+	margin: 5px 0;
+}
+
+.interests-container {
+	width: 100%;
+	text-align: center;
+}
+
+.interests-container .list-title {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.interests-container .bio-list {
+	display: inline-block;
+	margin: 10px auto;
+	text-align: left;
+	padding-left: 20px;
+}
 
 /* Modal Overlay */
 .bio-modal-overlay {
@@ -3254,163 +3282,167 @@ body {
 
 /* --Projects Section-- */
 #projects .projects-grid {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 3rem; /* Increased gap between cards */
-  margin-top: 3rem;
-  max-width: 1200px; /* Control maximum width */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	gap: 3rem;
+	/* Increased gap between cards */
+	margin-top: 3rem;
+	max-width: 1200px;
+	/* Control maximum width */
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 2rem;
 }
 
 #projects .item {
-  background: #ffffff;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  width: 100%;
-  max-width: 450px; /* Increased card width */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	background: #ffffff;
+	border-radius: 15px;
+	overflow: hidden;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	position: relative;
+	width: 100%;
+	max-width: 450px;
+	/* Increased card width */
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 #projects .item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+	transform: translateY(-8px);
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 #projects .image.fit {
-  position: relative;
-  overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 
 #projects .image.fit img {
-  width: 100%;
-  height: 280px; /* Increased image height */
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
+	width: 100%;
+	height: 280px;
+	/* Increased image height */
+	object-fit: cover;
+	display: block;
+	transition: transform 0.3s ease;
 }
 
 #projects .item:hover .image.fit img {
-  transform: scale(1.05);
+	transform: scale(1.05);
 }
 
 #projects header h3 {
-  text-align: center;
-  font-size: 1.8rem;
-  margin: 1.5rem 0;
-  color: #333;
-  font-weight: 600;
+	text-align: center;
+	font-size: 1.8rem;
+	margin: 1.5rem 0;
+	color: #333;
+	font-weight: 600;
 }
 
 /* Floating Action Buttons for Projects */
 #projects .fab-buttons {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  gap: 12px;
-  z-index: 10;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	display: flex;
+	gap: 12px;
+	z-index: 10;
+	opacity: 0;
+	transform: translateY(-10px);
+	transition: all 0.3s ease;
 }
 
 #projects .item:hover .fab-buttons {
-  opacity: 1;
-  transform: translateY(0);
+	opacity: 1;
+	transform: translateY(0);
 }
 
 #projects .fab-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
-  transition: all 0.3s ease;
-  border: 2px solid white;
-  font-weight: bold;
-  font-size: 1.1rem;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+	transition: all 0.3s ease;
+	border: 2px solid white;
+	font-weight: bold;
+	font-size: 1.1rem;
 }
 
 #projects .fab-btn:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.7);
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+	transform: scale(1.15);
+	box-shadow: 0 6px 20px rgba(102, 126, 234, 0.7);
+	background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
 #projects .fab-btn span {
-  font-size: 1.1em;
+	font-size: 1.1em;
 }
 
 /* Responsive: stack on smaller screens */
 @media (max-width: 1024px) {
-  #projects .projects-grid {
-    gap: 2rem;
-  }
-  
-  #projects .item {
-    max-width: 400px;
-  }
+	#projects .projects-grid {
+		gap: 2rem;
+	}
+
+	#projects .item {
+		max-width: 400px;
+	}
 }
 
 @media (max-width: 900px) {
-  #projects .projects-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-  }
-  
-  #projects .item {
-    max-width: 500px;
-  }
-  
-  #projects .fab-btn {
-    width: 45px;
-    height: 45px;
-  }
+	#projects .projects-grid {
+		flex-direction: column;
+		align-items: center;
+		gap: 2.5rem;
+	}
+
+	#projects .item {
+		max-width: 500px;
+	}
+
+	#projects .fab-btn {
+		width: 45px;
+		height: 45px;
+	}
 }
 
 @media (max-width: 600px) {
-  #projects .projects-grid {
-    padding: 0 1rem;
-    gap: 2rem;
-  }
-  
-  #projects .item {
-    max-width: 100%;
-  }
-  
-  /* Always show buttons on mobile */
-  #projects .fab-buttons {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  #projects .fab-buttons {
-    top: 15px;
-    right: 15px;
-    gap: 10px;
-  }
-  
-  #projects .fab-btn {
-    width: 42px;
-    height: 42px;
-  }
-  
-  #projects .fab-btn span {
-    font-size: 1em;
-  }
-  
-  #projects .image.fit img {
-    height: 220px;
-  }
+	#projects .projects-grid {
+		padding: 0 1rem;
+		gap: 2rem;
+	}
+
+	#projects .item {
+		max-width: 100%;
+	}
+
+	/* Always show buttons on mobile */
+	#projects .fab-buttons {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	#projects .fab-buttons {
+		top: 15px;
+		right: 15px;
+		gap: 10px;
+	}
+
+	#projects .fab-btn {
+		width: 42px;
+		height: 42px;
+	}
+
+	#projects .fab-btn span {
+		font-size: 1em;
+	}
+
+	#projects .image.fit img {
+		height: 220px;
+	}
 }
