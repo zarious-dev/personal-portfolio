@@ -171,7 +171,7 @@ function App() {
           <div className="container">
             <header>
               <h2>Biography</h2>
-              <p>Learn about my background, education, and interests.</p>
+              <p>Learn about my background, education, hobbies and interests.</p>
             </header>
 
             {/* Cards */}
@@ -296,7 +296,7 @@ function App() {
               <h2>Projects</h2>
             </header>
             <p>
-              These are one of the projects that I made
+              These are two of the projects that I made.
             </p>
 
             <div className="projects-grid">
