@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaLaravel, FaFigma, FaGitAlt, FaGithub, FaUser, FaGraduationCap, FaHeart, FaExternalLinkAlt, FaCode } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaLaravel, FaFigma, FaGitAlt, FaGithub, FaUser, FaGraduationCap, FaHeart, FaStar, } from "react-icons/fa";
 
 function App() {
   const [activeCard, setActiveCard] = useState(null);
@@ -25,11 +25,11 @@ function App() {
     // Define color cycles for each section (colors that rotate)
     const colorCycles = {
       'top': [
+        'linear-gradient(#642b73, #c6426e)', //magenta
         'linear-gradient(#1f4037, #99f2c8)', // Greenish
         'linear-gradient(#20002c, #cbb4d4)', // Purple-lav
         'linear-gradient(135deg, #30cfd0 0%, #330867 100%)', // Teal-Purple
         'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', // Purple
-        'linear-gradient(#642b73, #c6426e)', //magenta
         'linear-gradient(#283c86, #45a247)', //green-blue
         'linear-gradient(#eb5757, #000000)', //green-blue
       ],
@@ -143,21 +143,16 @@ function App() {
           <div className="container">
             <header>
               <h2 className="alt">
-                <strong> Hello! I'm Caezarie Enriquez</strong>{" "}
+                <strong> Hi! I'm Caezarie Enriquez</strong>{" "}
                 <br />
               </h2>
               <p>
-                I'm an <strong>Information Systems</strong> student who isn't deeply into
-                coding, but I have a strong passion for exploring, learning,
-                and adapting. This portfolio highlights my academic projects,
-                skills, and the experiences that have shaped my journey.
-                My dream is to work in the medical field, but if that doesn't happen,
-                I'll use what I've learned in Information Systems to contribute to healthcare in the future.
+                This portfolio highlights my backgrounds and academic projects.
                 <br />
               </p>
             </header>
             <footer>
-              <a href="#biography" className="button scrolly">Learn More About Me</a>
+              <a href="#top" className="button scrolly">Learn More About Me</a>
             </footer>
           </div>
         </section>
@@ -176,7 +171,7 @@ function App() {
           <div className="container">
             <header>
               <h2>Biography</h2>
-              <p>Learn about my background, education, and passions.</p>
+              <p>Learn about my background, education, and interests.</p>
             </header>
 
             {/* Cards */}
@@ -193,7 +188,11 @@ function App() {
 
               <div className="bio-card" onClick={() => setActiveCard(2)}>
                 <FaHeart className="bio-icon" />
-                <h3>Hobbies & Interests</h3>
+                <h3>Hobbies</h3>
+              </div>
+              <div className="bio-card" onClick={() => setActiveCard(3)}>
+                <FaStar className="bio-icon" />
+                <h3>Interests</h3>
               </div>
             </div>
           </div>
@@ -218,7 +217,9 @@ function App() {
                       <FaUser className="bio-modal-icon" />
                       <h3>About Me</h3>
                       <p>
-                        I am
+                        Hi! You can call me "C"! I am from Southern part of Palawan.
+                        My dream is to work in the medical field, but if that doesn't happen,
+                        I'll utilize what I've learned in Information Systems to contribute to healthcare in the future.
                       </p>
                     </>
                   )}
@@ -227,18 +228,51 @@ function App() {
                       <FaGraduationCap className="bio-modal-icon" />
                       <h3>Education</h3>
                       <p>
-                        I am
+                        I am currently taking <strong>Information Systems</strong> and I'm already in my third year.
+                        I'm a student who isn't deeply into coding, but I have a passion for exploring, learning,
+                        and adapting.
                       </p>
                     </>
                   )}
+
+                  {/* Card 2: Hobbies - ALL CONTENT CENTERED */}
                   {activeCard === 2 && (
                     <>
                       <FaHeart className="bio-modal-icon" />
-                      <h3>Hobbies & Interests</h3>
-                      <p>
-                        I
-                      </p>
+                      <h3>Hobbies</h3>
+
+                      {/* Uses the class to center the list block AND center the text within it */}
+                      <ul className="bio-list hobbies-list-centered">
+                        <li>Eating</li>
+                        <li>Sleeping</li>
+                        <li>Watching</li>
+                        <li>Reading</li>
+                        <li>Sight Seeing</li>
+                      </ul>
                     </>
+                  )}
+
+                  {/* Card 3: Interests - MIXED ALIGNMENT */}
+                  {activeCard === 3 && (
+                    /* Wrap the interests content to enable the complex alignment rules */
+                    <div className="interests-container">
+
+                      {/* Icon and H3 are centered by the main modal wrapper */}
+                      <FaStar className="bio-modal-icon" />
+                      <h3>Interests</h3>
+
+                      {/* This span is centered because of the text-align: center on .interests-container */}
+                      <span className="list-title"><strong>I am interested in:</strong></span>
+
+                      {/* The list block is centered, but the text inside is left-aligned */}
+                      <ul className="bio-list">
+                        <li>discovering new things that spark my interest</li>
+                        <li>operating different types of vehicles and heavy equipment</li>
+                        <li>Human Biology and Anatomy (the study of the human body)</li>
+                        <li>Strategy and Puzzle Games</li>
+                        <li>Gun Firing / Target Shooting Sports.</li>
+                      </ul>
+                    </div>
                   )}
                 </div>
               </div>
@@ -262,8 +296,7 @@ function App() {
               <h2>Projects</h2>
             </header>
             <p>
-              Showcase your most impressive projects here — describe the technologies used,
-              your role, and what makes each project unique or challenging.
+              These are one of the projects that I made
             </p>
 
             <div className="projects-grid">
@@ -374,8 +407,8 @@ function App() {
               <h2>Resume</h2>
             </header>
             <p>
-              You can view or download my resume below to learn more about my academic
-              and professional background.
+              You can view or download my resume below to learn more
+              about my academic <br /> and professional background.
             </p>
 
             {/* View Resume (Google Drive) */}
